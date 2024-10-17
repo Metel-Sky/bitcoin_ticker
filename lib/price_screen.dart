@@ -6,19 +6,23 @@ class PriceScreen extends StatefulWidget {
 }
 
 class _PriceScreenState extends State<PriceScreen> {
+
+  String selectedCurrency = 'USD';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.limeAccent,
-        title: Text('🤑 Coin Ticker',style: TextStyle(color: Colors.grey[600]),),
+        title: Text(
+          '🤑 Coin Ticker',
+          style: TextStyle(color: Colors.grey[600]),
+        ),
         centerTitle: true,
       ),
       body: Column(
-
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.stretch,
-
         children: <Widget>[
           Padding(
             padding: EdgeInsets.fromLTRB(18.0, 18.0, 18.0, 0),
@@ -45,11 +49,38 @@ class _PriceScreenState extends State<PriceScreen> {
             height: 100.0,
             alignment: Alignment.center,
             padding: EdgeInsets.only(bottom: 30.0),
-            color: Colors.limeAccent,
-            child: null,
+            color: Colors.blueGrey,
+
+            //
+            child: DropdownButton<String>(//______DropdownButton_____випадаючий список
+              value: selectedCurrency,
+                items: [
+              DropdownMenuItem(
+                child: Text('USD'),
+                value: 'USD',
+              ),
+              DropdownMenuItem(
+                child: Text('EUR'),
+                value: 'EUR',
+              ),
+              DropdownMenuItem(
+                child: Text('GBP'),
+                value: 'GBP',
+              ),
+
+            ], onChanged: (value){
+                setState(() {
+                  selectedCurrency = value!;
+                });
+
+              print(selectedCurrency);
+            }),
           ),
         ],
       ),
     );
-  }//12
+  } //12
 }
+
+
+for (){}
