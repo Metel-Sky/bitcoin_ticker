@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'coin_data.dart';
+
 class PriceScreen extends StatefulWidget {
   @override
   _PriceScreenState createState() => _PriceScreenState();
@@ -7,7 +9,10 @@ class PriceScreen extends StatefulWidget {
 
 class _PriceScreenState extends State<PriceScreen> {
 
+
   String selectedCurrency = 'USD';
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -79,8 +84,11 @@ class _PriceScreenState extends State<PriceScreen> {
         ],
       ),
     );
-  } //12
+  } //123
 }
 
+void currency(){
+  for(String curr in cryptoList ){
 
-//for (String ){}
+  }
+}
