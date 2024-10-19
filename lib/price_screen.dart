@@ -105,7 +105,7 @@ class _PriceScreenState extends State<PriceScreen> {
               backgroundColor: Colors.lightGreen,
                 itemExtent: 32,
                 onSelectedItemChanged: (selectedIndex) {
-                  print(selectedIndex);
+                  print(currenciesList[selectedIndex]);
                 },
                 children: getPickerItems(),),
             //---------------------------------------------------------
