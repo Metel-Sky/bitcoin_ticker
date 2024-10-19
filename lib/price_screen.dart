@@ -48,7 +48,9 @@ class _PriceScreenState extends State<PriceScreen> {
     // Повертаємо заповнений список dropdownItem.
     // Цей список можна використовувати як параметр items у DropdownButton.
   }
-
+  //
+  //---------------------------------------------цикл для купертіно крутілки
+  //
   List<Text> getPickerItems() {
     //---прокручуваний список з бібліотеки купертіно
     List<Text> pickerItems = [];
