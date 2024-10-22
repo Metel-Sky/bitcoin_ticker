@@ -36,4 +36,4 @@ class getCoinPrice {
 // curl -L 'https://rest.coinapi.io/v1/exchangerate/BTC/USD?apikey=1C10DAD6-2948-4AF4-BE81-646181E4F920'
 //              https://rest.coinapi.io/v1/exchangerate/ETH/USD?apikey=1C10DAD6-2948-4AF4-BE81-646181E4F920
 // -H 'Accept: text/plain' \
-// -H 'X-CoinAPI-Key: <API_KEY_VALUE>'/
+// -H 'X-CoinAPI-Key: <API_KEY_VALUE>'//
