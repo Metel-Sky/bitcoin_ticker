@@ -1,12 +1,9 @@
 import 'package:bitcoin_ticker/services/coinApi.dart';
 
-
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'coin_data.dart';
 import 'dart:io' show Platform;
-
-
 
 class PriceScreen extends StatefulWidget {
   @override
@@ -16,7 +13,8 @@ class PriceScreen extends StatefulWidget {
 class _PriceScreenState extends State<PriceScreen> {
   String selectedCurrency = 'BTC';
 
-  final getCoinPrice _getCoinPrice = getCoinPrice(); // Ваш клас для отримання ціни
+  final getCoinPrice _getCoinPrice =
+      getCoinPrice(); // Ваш клас для отримання ціни
 
   @override
   void initState() {
@@ -25,17 +23,22 @@ class _PriceScreenState extends State<PriceScreen> {
   }
 
   Future<void> updatePrice() async {
-    var priceData = await _getCoinPrice.getPrice('BTC', selectedCurrency); // Виклик методу для отримання ціни
+    var priceData = await _getCoinPrice.getPrice(
+        'BTC', selectedCurrency); // Виклик методу для отримання ціни
     setState(() {
       actualPrice = priceData['rate']; // Оновити actualPrice з отриманих даних
     });
   }
 
-  DropdownButton<String> androidPicker() {//-------випадаючий список для ANDROID
+  DropdownButton<String> androidPicker() {
+    //-------випадаючий список для ANDROID
     List<DropdownMenuItem<String>> dropdownItems = [];
     for (String currenci in currenciesList) {
       var newItem = DropdownMenuItem<String>(
-        child: Text(currenci,style: TextStyle(fontSize: 14),),
+        child: Text(
+          currenci,
+          style: TextStyle(fontSize: 14),
+        ),
         value: currenci,
       );
       dropdownItems.add(newItem);
@@ -64,7 +67,8 @@ class _PriceScreenState extends State<PriceScreen> {
       itemExtent: 30,
       onSelectedItemChanged: (selectedIndex) {
         setState(() {
-          selectedCurrency = currenciesList[selectedIndex]; // Оновити selectedCurrency
+          selectedCurrency =
+              currenciesList[selectedIndex]; // Оновити selectedCurrency
         });
         updatePrice(); // Оновити ціну при зміні валюти
       },
@@ -86,10 +90,8 @@ class _PriceScreenState extends State<PriceScreen> {
   String eth = 'ETH';
   String bnb = 'BNB';
 
-
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.lightGreen,
@@ -106,9 +108,9 @@ class _PriceScreenState extends State<PriceScreen> {
           Padding(
             padding: EdgeInsets.fromLTRB(18.0, 18.0, 18.0, 0),
             child: InkWell(
-              onTap: (){
+              onTap: () {
                 //updatePrice();
-                getCoinPrice().getPrice(btc,selectedCurrency);
+                getCoinPrice().getPrice(btc, selectedCurrency);
               },
               child: Card(
                 color: Colors.grey[300],
@@ -117,7 +119,8 @@ class _PriceScreenState extends State<PriceScreen> {
                   borderRadius: BorderRadius.circular(10.0),
                 ),
                 child: Padding(
-                  padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 28.0),
+                  padding:
+                      EdgeInsets.symmetric(vertical: 15.0, horizontal: 28.0),
                   child: Text(
                     '1 BTC = ${actualPriceBTC.toStringAsFixed(2)} $selectedCurrency',
                     textAlign: TextAlign.center,
@@ -133,9 +136,9 @@ class _PriceScreenState extends State<PriceScreen> {
           Padding(
             padding: EdgeInsets.fromLTRB(18.0, 18.0, 18.0, 0),
             child: InkWell(
-              onTap: (){
+              onTap: () {
                 //updatePrice();
-                getCoinPrice().getPrice(eth,selectedCurrency);
+                getCoinPrice().getPrice(eth, selectedCurrency);
               },
               child: Card(
                 color: Colors.grey[300],
@@ -144,7 +147,8 @@ class _PriceScreenState extends State<PriceScreen> {
                   borderRadius: BorderRadius.circular(10.0),
                 ),
                 child: Padding(
-                  padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 28.0),
+                  padding:
+                      EdgeInsets.symmetric(vertical: 15.0, horizontal: 28.0),
                   child: Text(
                     '1 ETH = ${actualPriceETH.toStringAsFixed(2)} $selectedCurrency',
                     textAlign: TextAlign.center,
@@ -160,9 +164,9 @@ class _PriceScreenState extends State<PriceScreen> {
           Padding(
             padding: EdgeInsets.fromLTRB(18.0, 18.0, 18.0, 0),
             child: InkWell(
-              onTap: (){
+              onTap: () {
                 //updatePrice();
-                getCoinPrice().getPrice(bnb,selectedCurrency);
+                getCoinPrice().getPrice(bnb, selectedCurrency);
               },
               child: Card(
                 color: Colors.grey[300],
@@ -171,7 +175,8 @@ class _PriceScreenState extends State<PriceScreen> {
                   borderRadius: BorderRadius.circular(10.0),
                 ),
                 child: Padding(
-                  padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 28.0),
+                  padding:
+                      EdgeInsets.symmetric(vertical: 15.0, horizontal: 28.0),
                   child: Text(
                     '1 BNB = ${actualPriceBNB.toStringAsFixed(2)} $selectedCurrency',
                     textAlign: TextAlign.center,
@@ -186,12 +191,13 @@ class _PriceScreenState extends State<PriceScreen> {
           ),
           Spacer(),
           Container(
-
             height: 150.0,
             alignment: Alignment.center,
             padding: EdgeInsets.only(bottom: 30.0),
             color: Colors.lightGreen,
-            child:Platform.isAndroid ? IOSPicker() : androidPicker(),//варіант замість іфа, перевіряє одне з двох
+            child: Platform.isAndroid
+                ? IOSPicker()
+                : androidPicker(), //варіант замість іфа, перевіряє одне з двох
           ),
         ],
       ),
