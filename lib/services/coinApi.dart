@@ -1,4 +1,3 @@
-import 'package:bitcoin_ticker/price_screen.dart';
 import 'networking.dart';
 
 const apiKey = '1C10DAD6-2948-4AF4-BE81-646181E4F920';
@@ -20,12 +19,12 @@ class getCoinPrice {
     } else {
       print('Не вдалося отримати ціну.');
     }
-   // print(actualPrice.toDouble());
-    if (priceCoin['asset_id_base']=='BTC'){
+    // print(actualPrice.toDouble());
+    if (priceCoin['asset_id_base'] == 'BTC') {
       actualPriceBTC = priceCoin['rate'].toDouble();
-    }else if (priceCoin['asset_id_base']=='ETH'){
+    } else if (priceCoin['asset_id_base'] == 'ETH') {
       actualPriceETH = priceCoin['rate'].toDouble();
-    }else {
+    } else {
       actualPriceBNB = priceCoin['rate'].toDouble();
     }
 
